@@ -35,6 +35,7 @@ namespace MyApp.Controllers
             return RedirectToAction("Index", "StatementModels", new { statementFilter });
         }
 
+        [HttpGet]
         public IActionResult GoToStatement(long Id)
         {
             var statementModel = statementService.GetStatement(Id);

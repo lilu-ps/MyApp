@@ -13,5 +13,6 @@ namespace MyApp.Models
         public byte[] statementImage { get; set; }
         public string statementName { get; set; }
         public string statementDescription { get; set; }
+        public string phoneNumber { get; set; }
     }
 }

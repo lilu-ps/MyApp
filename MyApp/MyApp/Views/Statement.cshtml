@@ -1,1 +1,32 @@
-﻿<h1>henlooo here</h1>
+﻿@model MyApp.Models.StatementModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/style.css" />
+
+    <title>Statement</title>
+</head>
+
+<body>
+
+    <section class="statement-section">
+
+        <div class="statementDet">
+            @{ 
+                var arr = Convert.ToBase64String(Model?.statementImage);
+                var imgSrc = String.Format("data:image/jpg;base64,{0}", arr);
+
+            }
+            <img src="@imgSrc" style="width:100%" />
+            <h1>@Model.statementName</h1>
+            <p class="title">@Model.statementDescription</p>
+            <p>Phone Number: @Model.phoneNumber</p>
+        </div>
+
+
+    </section>
+
+</body>
+</html>
