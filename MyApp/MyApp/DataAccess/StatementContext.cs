@@ -13,9 +13,5 @@ namespace MyApp.DataAccess
 
         public DbSet<StatementModel> Statements { get; set; }
 
-        internal StatementModel Find(long id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
