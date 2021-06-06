@@ -10,7 +10,13 @@
             $.ajax({
                 type: 'GET',
                 url: '/StatementModels/UpdateStatementGrid',
-                data: statementFilter
+                data: statementFilter,
+                success: function (a) {
+                    $('#statement-page-body').html(a);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown)
+                }
             });
         }
     });

@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<MyApp.Models.StatementModel>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@{
-    var modl = Model;
-    var lst = Model.ToList().Count();
-    var m = lst;
-            }
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,13 +14,13 @@
     <title>Statements</title>
 </head>
 
-<body>
+<body id="statement-page-body">
 
     <header class="header-section"></header>
     <section class="filter-section">
 
         <div class="form-group">
-            <label for="StatementFilter" style="line-height: 34px !important; margin: 0px !important; height: 34px !important; font-size: 13px;">Statement Name</label>
+            <label for="StatementFilter" class="filter-label">Statement Name</label>
 
             <input class="form-control" name="StatementFilter" id="StatementFilter" type="text" placeholder="Enter here "
                    value="">
@@ -32,7 +28,7 @@
     </section>
     <section class="grid-section">
 
-        <table class="table">
+        <table class="table" id="statement-table">
             <thead>
                 <tr>
                     <th>Statement Image</th>

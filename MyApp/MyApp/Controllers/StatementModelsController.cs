@@ -32,6 +32,8 @@ namespace MyApp.Controllers
 
         public IActionResult UpdateStatementGrid([FromQuery] StatementFilter statementFilter = null)
         {
+            //var statementList = statementService.GetStatementList(statementFilter);
+            //return PartialView("~/Views/Index.cshtml", statementList);
             return RedirectToAction("Index", "StatementModels", statementFilter);
         }
 
