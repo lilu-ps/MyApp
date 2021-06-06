@@ -32,7 +32,7 @@ namespace MyApp.Controllers
 
         public IActionResult UpdateStatementGrid([FromQuery] StatementFilter statementFilter = null)
         {
-            return RedirectToAction("Index", "StatementModels", new { statementFilter });
+            return RedirectToAction("Index", "StatementModels", statementFilter);
         }
 
         [HttpGet]

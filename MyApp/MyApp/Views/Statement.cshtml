@@ -19,8 +19,8 @@
                 var imgSrc = String.Format("data:image/jpg;base64,{0}", arr);
 
             }
-            <img src="@imgSrc" style="width:100%" />
-            <h1>@Model.statementName</h1>
+            <img src="@imgSrc"/>
+            <h1>Name: @Model.statementName</h1>
             <p class="title">@Model.statementDescription</p>
             <p>Phone Number: @Model.phoneNumber</p>
         </div>

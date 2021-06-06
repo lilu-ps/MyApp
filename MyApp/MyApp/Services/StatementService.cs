@@ -29,19 +29,23 @@ namespace MyApp.Services
          */
         void IStatementService.insertDataIntoDatabase()
         {
-            string[] filePaths = { "C:\\Users\\User\\Desktop\\first.jpg", "C:\\Users\\User\\Desktop\\sec.jpg", "C:\\Users\\User\\Desktop\\third.jpg" };
-            string[] names = { "first", "second", "third" };
+            string[] filePaths = { "wwwroot//imagesForDB/first.jpg", "wwwroot//imagesForDB/sec.jpg" };
+            string[] names = { "statement 1", "statement 2" };
             for (int i = 0; i < filePaths.Count(); i++)
             {
                 var filepath = filePaths[i];
                 FileStream FS = new FileStream(filepath, FileMode.Open, FileAccess.Read); 
-                byte[] img = new byte[FS.Length]; //create a byte array with size of user select file stream length
+
+                byte[] img = new byte[FS.Length]; 
                 FS.Read(img, 0, Convert.ToInt32(FS.Length));
+
                 StatementModel newStatement = new StatementModel() {
                     statementName = names[i],
                     statementImage = img,
-                    statementDescription = names[i] + " statement"
+                    statementDescription = names[i] + " statement",
+                    phoneNumber = "000000000"
                 };
+
                 this.statementDBContext.Statements.Add(newStatement);
                 this.statementDBContext.SaveChanges();
             }

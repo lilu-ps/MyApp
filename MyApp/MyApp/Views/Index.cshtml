@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<MyApp.Models.StatementModel>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    var modl = Model;
+    var lst = Model.ToList().Count();
+    var m = lst;
+            }
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +63,8 @@
         </table>
     </section>
 
-    <!--<script type="module" src="js/index.js"></script>-->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/site.js" asp-append-version="true"></script>
 </body>
 </html>
