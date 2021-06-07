@@ -145,3 +145,4 @@ C:\Users\User\Documents\GitHub\MyApp\MyApp\MyApp\bin\Debug\net5.0\MyApp.Views.dl
 C:\Users\User\Documents\GitHub\MyApp\MyApp\MyApp\bin\Debug\net5.0\MyApp.Views.pdb
 C:\Users\User\Documents\GitHub\MyApp\MyApp\MyApp\obj\Debug\net5.0\MyApp.Views.pdb
 C:\Users\User\Documents\GitHub\MyApp\MyApp\MyApp\obj\Debug\net5.0\Razor\Views\Statement.cshtml.g.cs
+C:\Users\User\Documents\GitHub\MyApp\MyApp\MyApp\obj\Debug\net5.0\Razor\Views\GridView.cshtml.g.cs

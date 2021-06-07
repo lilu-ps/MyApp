@@ -24,38 +24,10 @@
                    value="">
         </div>
     </section>
-    <section class="grid-section">
+    <div class="grid-section" id="grid-view-body">
+        @Html.Partial("~/Views/GridView.cshtml", Model)
 
-        <table class="table" id="statement-table">
-            <thead>
-                <tr>
-                    <th>Statement Image</th>
-                    <th>Statement Name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    var imgSrc = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item?.statementImage));
-
-                    <tr>
-                        <td>
-                            <img src="@imgSrc" />
-                        </td>
-                        <td>
-                            @item.statementName
-                        </td>
-
-                        <td>
-                            <a asp-controller="StatementModels" asp-action="GoToStatement" asp-route-id="@item.statementId">View</a>
-                        </td>
-
-                    </tr>
-                 }
-            </tbody>
-        </table>
-    </section>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
