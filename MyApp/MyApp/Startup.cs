@@ -44,6 +44,7 @@ namespace MyApp
             {
                 c.SwaggerDoc(name: "v1", new OpenApiInfo { Title = "MyApp Services", Version = "v1.0" });
             });
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyApp.Models;
+using MyApp.DataModels;
 using System;
 
 namespace MyApp.DataAccess
@@ -11,11 +11,11 @@ namespace MyApp.DataAccess
         {
         }
 
-        public DbSet<StatementModel> Statements { get; set; }
+        public DbSet<Statement> Statements { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<StatementModel>(entity =>
+            modelBuilder.Entity<Statement>(entity =>
             {
                 entity.HasIndex(x => x.statementName);
             });

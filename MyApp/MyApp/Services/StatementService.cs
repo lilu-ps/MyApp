@@ -8,6 +8,9 @@ using MyApp.DataAccess;
 using MyApp.Models;
 using MyApp.Filters;
 using System.IO;
+using MyApp.Mappers;
+using AutoMapper;
+using MyApp.DataModels;
 
 namespace MyApp.Services
 {
@@ -15,10 +18,12 @@ namespace MyApp.Services
     {
 
         private readonly StatementContext statementDBContext;
+        private readonly IMapper mapper;
 
-        public StatementService(StatementContext statementDBContext)
+        public StatementService(StatementContext statementDBContext, IMapper mapper)
         {
             this.statementDBContext = statementDBContext;
+            this.mapper = mapper;
         }
 
 
@@ -45,8 +50,8 @@ namespace MyApp.Services
                     statementDescription = names[i] + " statement",
                     phoneNumber = "000000000"
                 };
-
-                this.statementDBContext.Statements.Add(newStatement);
+                var dbStatement = mapper.Map<Statement>(newStatement);
+                this.statementDBContext.Statements.Add(dbStatement);
                 this.statementDBContext.SaveChanges();
             }
 
@@ -54,16 +59,17 @@ namespace MyApp.Services
 
         StatementModel IStatementService.GetStatement(long Id)
         {
-            return this.statementDBContext.Statements.Find(Id);
+            var statement = this.statementDBContext.Statements.Find(Id);
+            return mapper.Map<StatementModel>(statement);
         }
 
         IEnumerable<StatementModel> IStatementService.GetStatementList(StatementFilter statementFilter)
         {
             if (statementFilter.statementName == null)
             {
-                return this.statementDBContext.Statements.AsEnumerable();
+                return this.statementDBContext.Statements.Select(x => mapper.Map<StatementModel>(x)).AsEnumerable();
             }
-            return this.statementDBContext.Statements.Where(i => i.statementName == statementFilter.statementName).AsEnumerable();
+            return this.statementDBContext.Statements.Where(i => i.statementName == statementFilter.statementName).Select(x => mapper.Map<StatementModel>(x)).AsEnumerable();
         }
     }
 }

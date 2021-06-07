@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
-namespace MyApp.Models
+namespace MyApp.DataModels
 {
-    public class StatementModel
+    public class Statement
     {
+        [Key]
         public long statementId { get; set; }
         public byte[] statementImage { get; set; }
         public string statementName { get; set; }
